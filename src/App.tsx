@@ -59,14 +59,14 @@ const Admin = () => {
   return <h1>Admin page</h1>
 }
 
-interface PublicElementProps {
+interface ElementProps {
   children: ReactNode;
 }
-const PublicElement: FC<PublicElementProps> = ({ children }) => {
+const PublicElement: FC<ElementProps> = ({ children }) => {
   return <>{children}</>;
 };
 
-const UserElement: FC<PublicElementProps> = ({ children }) => {
+const UserElement: FC<ElementProps> = ({ children }) => {
   if (CURRENT_USER_TYPE === USER_TYPES.NORMAL_USER ||
     CURRENT_USER_TYPE === USER_TYPES.ADMIN_USER) {
     return <>{children}</>
@@ -75,7 +75,7 @@ const UserElement: FC<PublicElementProps> = ({ children }) => {
   }
 };
 
-const AdminElement: FC<PublicElementProps> = ({ children }) => {
+const AdminElement: FC<ElementProps> = ({ children }) => {
   if (CURRENT_USER_TYPE === USER_TYPES.ADMIN_USER) {
     return <>{children}</>
   } else {
